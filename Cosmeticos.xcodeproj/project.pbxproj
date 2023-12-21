@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D6284B622B346A1E00209427 /* CosmeticosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6284B612B346A1E00209427 /* CosmeticosApp.swift */; };
+		D6284B642B346A1E00209427 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6284B632B346A1E00209427 /* ContentView.swift */; };
+		D6284B662B346A2000209427 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6284B652B346A2000209427 /* Assets.xcassets */; };
+		D6284B692B346A2000209427 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6284B682B346A2000209427 /* Preview Assets.xcassets */; };
+		D6284B702B346B1300209427 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6284B6F2B346B1200209427 /* GoogleService-Info.plist */; };
+		D6284B752B34ACD900209427 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D6284B742B34ACD900209427 /* FirebaseAnalytics */; };
+		D6284B772B34ACD900209427 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D6284B762B34ACD900209427 /* FirebaseAnalyticsSwift */; };
+		D6284B792B34ACD900209427 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D6284B782B34ACD900209427 /* FirebaseAuth */; };
+		D6284B7C2B34AEA200209427 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6284B7B2B34AEA200209427 /* AuthenticationView.swift */; };
+		D6284B7E2B34AFAD00209427 /* SignInEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6284B7D2B34AFAD00209427 /* SignInEmailView.swift */; };
+		D6284BB62B34B68D00209427 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6284BB52B34B68D00209427 /* AuthenticationManager.swift */; };
+		D6284BB92B34B89A00209427 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6284BB82B34B89A00209427 /* Collection.swift */; };
+		D6284BBB2B34B9DF00209427 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6284BBA2B34B9DF00209427 /* RootView.swift */; };
+		D6284BBD2B34BF9900209427 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6284BBC2B34BF9900209427 /* SettingsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D6284B5E2B346A1E00209427 /* Cosmeticos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cosmeticos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6284B612B346A1E00209427 /* CosmeticosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CosmeticosApp.swift; sourceTree = "<group>"; };
+		D6284B632B346A1E00209427 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D6284B652B346A2000209427 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D6284B682B346A2000209427 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D6284B6F2B346B1200209427 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D6284B7B2B34AEA200209427 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		D6284B7D2B34AFAD00209427 /* SignInEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailView.swift; sourceTree = "<group>"; };
+		D6284BB52B34B68D00209427 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		D6284BB82B34B89A00209427 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		D6284BBA2B34B9DF00209427 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		D6284BBC2B34BF9900209427 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D6284B5B2B346A1E00209427 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6284B772B34ACD900209427 /* FirebaseAnalyticsSwift in Frameworks */,
+				D6284B792B34ACD900209427 /* FirebaseAuth in Frameworks */,
+				D6284B752B34ACD900209427 /* FirebaseAnalytics in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D6284B552B346A1E00209427 = {
+			isa = PBXGroup;
+			children = (
+				D6284B602B346A1E00209427 /* Cosmeticos */,
+				D6284B5F2B346A1E00209427 /* Products */,
+				D6284B732B34ACD900209427 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D6284B5F2B346A1E00209427 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6284B5E2B346A1E00209427 /* Cosmeticos.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D6284B602B346A1E00209427 /* Cosmeticos */ = {
+			isa = PBXGroup;
+			children = (
+				D6284B612B346A1E00209427 /* CosmeticosApp.swift */,
+				D6284B632B346A1E00209427 /* ContentView.swift */,
+				D6284BB72B34B88200209427 /* Extensions */,
+				D6284B7A2B34AE2E00209427 /* Authentication */,
+				D6284B6F2B346B1200209427 /* GoogleService-Info.plist */,
+				D6284B652B346A2000209427 /* Assets.xcassets */,
+				D6284B672B346A2000209427 /* Preview Content */,
+			);
+			path = Cosmeticos;
+			sourceTree = "<group>";
+		};
+		D6284B672B346A2000209427 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D6284B682B346A2000209427 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D6284B732B34ACD900209427 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D6284B7A2B34AE2E00209427 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				D6284BBA2B34B9DF00209427 /* RootView.swift */,
+				D6284B7B2B34AEA200209427 /* AuthenticationView.swift */,
+				D6284B7D2B34AFAD00209427 /* SignInEmailView.swift */,
+				D6284BBC2B34BF9900209427 /* SettingsView.swift */,
+				D6284BB52B34B68D00209427 /* AuthenticationManager.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		D6284BB72B34B88200209427 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D6284BB82B34B89A00209427 /* Collection.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D6284B5D2B346A1E00209427 /* Cosmeticos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6284B6C2B346A2000209427 /* Build configuration list for PBXNativeTarget "Cosmeticos" */;
+			buildPhases = (
+				D6284B5A2B346A1E00209427 /* Sources */,
+				D6284B5B2B346A1E00209427 /* Frameworks */,
+				D6284B5C2B346A1E00209427 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cosmeticos;
+			packageProductDependencies = (
+				D6284B742B34ACD900209427 /* FirebaseAnalytics */,
+				D6284B762B34ACD900209427 /* FirebaseAnalyticsSwift */,
+				D6284B782B34ACD900209427 /* FirebaseAuth */,
+			);
+			productName = Cosmeticos;
+			productReference = D6284B5E2B346A1E00209427 /* Cosmeticos.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D6284B562B346A1E00209427 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					D6284B5D2B346A1E00209427 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+				};
+			};
+			buildConfigurationList = D6284B592B346A1E00209427 /* Build configuration list for PBXProject "Cosmeticos" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D6284B552B346A1E00209427;
+			packageReferences = (
+				D6284B712B346FEB00209427 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = D6284B5F2B346A1E00209427 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D6284B5D2B346A1E00209427 /* Cosmeticos */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D6284B5C2B346A1E00209427 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6284B702B346B1300209427 /* GoogleService-Info.plist in Resources */,
+				D6284B692B346A2000209427 /* Preview Assets.xcassets in Resources */,
+				D6284B662B346A2000209427 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D6284B5A2B346A1E00209427 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6284B642B346A1E00209427 /* ContentView.swift in Sources */,
+				D6284BBD2B34BF9900209427 /* SettingsView.swift in Sources */,
+				D6284B622B346A1E00209427 /* CosmeticosApp.swift in Sources */,
+				D6284B7C2B34AEA200209427 /* AuthenticationView.swift in Sources */,
+				D6284BB92B34B89A00209427 /* Collection.swift in Sources */,
+				D6284BBB2B34B9DF00209427 /* RootView.swift in Sources */,
+				D6284BB62B34B68D00209427 /* AuthenticationManager.swift in Sources */,
+				D6284B7E2B34AFAD00209427 /* SignInEmailView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D6284B6A2B346A2000209427 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D6284B6B2B346A2000209427 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D6284B6D2B346A2000209427 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Cosmeticos/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = GoncalvesHigino.Cosmeticos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D6284B6E2B346A2000209427 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Cosmeticos/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = GoncalvesHigino.Cosmeticos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D6284B592B346A1E00209427 /* Build configuration list for PBXProject "Cosmeticos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6284B6A2B346A2000209427 /* Debug */,
+				D6284B6B2B346A2000209427 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6284B6C2B346A2000209427 /* Build configuration list for PBXNativeTarget "Cosmeticos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6284B6D2B346A2000209427 /* Debug */,
+				D6284B6E2B346A2000209427 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D6284B712B346FEB00209427 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.19.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D6284B742B34ACD900209427 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6284B712B346FEB00209427 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		D6284B762B34ACD900209427 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6284B712B346FEB00209427 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		D6284B782B34ACD900209427 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6284B712B346FEB00209427 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D6284B562B346A1E00209427 /* Project object */;
+}
