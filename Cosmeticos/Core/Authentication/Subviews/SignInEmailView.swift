@@ -7,35 +7,7 @@
 
 import SwiftUI
 
-final class SignInEmailViewModel: ObservableObject {
-    
-    @Published var email = ""
-    @Published var password = ""
-    
-    var isLoading: Bool = false
-    
-    func verifyEmailAndPassword() {
-        guard email.isNoEmpty, password.isNoEmpty else {
-            print("No email or password found")
-            return
-        }
-    }
-    
-    func signUp() async throws {
-        isLoading = true
-        verifyEmailAndPassword()
-        try await AuthenticationManager.shared.createUser(email: email, password: password)
-        isLoading = false
-    }
-    
-    func signIn() async throws {
-        isLoading = true
-        verifyEmailAndPassword()
-        try await AuthenticationManager.shared.signInUser(email: email, password: password)
-        isLoading = false
-    }
-    
-}
+
 
 struct SignInEmailView: View {
     
@@ -56,10 +28,31 @@ struct SignInEmailView: View {
                 .padding()
                 .background(Color(.systemGray6))
                 .cornerRadius(10)
+            
+            Button {
+               print("Reset Password")
+            } label: {
+                Text("Forgot password?")
+                    .font(.footnote)
+                    .fontWeight(.semibold)
+                    .padding(.top, 20)
+                    .padding(.trailing)
+                    .foregroundStyle(.black)
+            }
+            .frame(maxWidth: .infinity, alignment: .trailing)
                 
             
-            Button("Sign In") {
+            
+            Button {
                 Task {
+                    do {
+                        try await viewModel.signUp()
+                        showSignInView = false
+                        return
+                    } catch {
+                        
+                    }
+                    
                     do {
                         try await viewModel.signIn()
                         showSignInView = false
@@ -67,21 +60,34 @@ struct SignInEmailView: View {
                     } catch {
                         print(error)
                     }
-                    do {
-                        try await viewModel.signUp()
-                        showSignInView = false
-                        return
-                    } catch {
-                        print(error)
-                    }
+                    
                 }
+            } label: {
+                Text("Sign In")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(10)
             }
-            .font(.headline)
-            .foregroundStyle(.white)
-            .frame(height: 55)
-            .frame(maxWidth: .infinity)
-            .background(Color.blue)
-            .cornerRadius(10)
+
+          
+            Divider()
+                .padding()
+            
+            NavigationLink {
+              Text("Sign Up")
+            } label: {
+                HStack(spacing:3) {
+                    Text("Don't have an account?")
+                    
+                    Text("Sign Up")
+                        .fontWeight(.semibold)
+                }
+                .font(.footnote)
+            }
+            .padding(.vertical)
             
             Spacer()
         }

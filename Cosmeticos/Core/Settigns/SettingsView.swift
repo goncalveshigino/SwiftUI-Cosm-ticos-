@@ -8,33 +8,6 @@
 import SwiftUI
 
 
-final class SettignsViewModel: ObservableObject {
-    
-    func signOut() throws {
-        try AuthenticationManager.shared.signOut()
-    }
-    
-    func resetPassword() async throws {
-        let authResult = try  AuthenticationManager.shared.getCurrentUser()
-        
-        guard let email = authResult.email else {
-            throw URLError(.fileDoesNotExist)
-        }
-        
-        try await AuthenticationManager.shared.resetPassword(email: email)
-    }
-    
-    func updateEmail() async throws {
-        let email = "higino@gmail.com"
-        try await AuthenticationManager.shared.updateEmail(email: email)
-    }
-    
-    func updatePassword() async throws {
-        let password = "asd123"
-        try await AuthenticationManager.shared.updatePassword(password: password)
-    }
-}
-
 struct SettingsView: View {
     
     @StateObject private var viewModel = SettignsViewModel()
@@ -53,9 +26,32 @@ struct SettingsView: View {
                 }
             }
             
-            emailSection
+            Button(role: .destructive) {
+                Task {
+                    do {
+                        try await viewModel.deleteAccount()
+                        showSignInView = false
+                    } catch {
+                        print(error)
+                    }
+                }
+            } label: {
+                Text("Delete cccount")
+            }
             
+            if viewModel.authProviders.contains(.email) {
+                emailSection
+            }
+            
+            if viewModel.authUser?.isAnonymous == true {
+                anonymousSection
+            }
         }
+        .onAppear {
+            viewModel.loadAuthProviders()
+            viewModel.loadAuthUser()
+        }
+        .navigationTitle("Settings")
     }
 }
 
@@ -68,6 +64,7 @@ struct SettingsView: View {
 
 extension SettingsView {
     
+  
     private var emailSection: some View{
         Section {
             Button("Reset Password") {
@@ -107,4 +104,35 @@ extension SettingsView {
             Text("Email Functions")
         }
     }
+    
+    private var anonymousSection: some View{
+        Section {
+            
+            Button("Link Google Accoun") {
+                Task {
+                    do {
+                        try await viewModel.linkGoogleAcount()
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
+            
+            Button("Link Email Accoun") {
+                Task {
+                    do {
+                        try await viewModel.linkEmailAcount()
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
+            
+        } header: {
+            Text("Create Accounte")
+        }
+    }
+        
 }
+
+
