@@ -32,15 +32,15 @@ final class SignInEmailViewModel: ObservableObject {
         try await AuthenticationManager.shared.signInUser(email: email, password: password)
     }
     
-//    func resetPassword() async throws {
-//        let authUser = try AuthenticationManager.shared.getCurrentUser()
-//        
-//        guard let email = authUser.email else {
-//            throw URLError(.fileDoesNotExist)
-//        }
-//        
-//        try await AuthenticationManager.shared.resetPassword(email: email)
-//        
-//    }
+    func resetPassword() async throws {
+        let authUser = try AuthenticationManager.shared.getCurrentUser()
+        
+        guard let email = authUser.email else {
+            throw URLError(.fileDoesNotExist)
+        }
+        
+        try await AuthenticationManager.shared.resetPassword(email: email)
+        
+    }
     
 }
