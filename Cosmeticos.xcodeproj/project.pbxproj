@@ -23,6 +23,11 @@
 		D66FE8762B581B69007E6F8C /* SignInGoogleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66FE8752B581B69007E6F8C /* SignInGoogleHelper.swift */; };
 		D66FE8792B581C27007E6F8C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66FE8782B581C27007E6F8C /* Utilities.swift */; };
 		D66FE87C2B582495007E6F8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D66FE87B2B582495007E6F8C /* GoogleService-Info.plist */; };
+		D68BB8932B7108D900CB1088 /* ProductDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68BB8922B7108D900CB1088 /* ProductDatabase.swift */; };
+		D68BB8952B71095500CB1088 /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68BB8942B71095500CB1088 /* ProductManager.swift */; };
+		D68BB8982B710AC800CB1088 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68BB8972B710AC800CB1088 /* ProductView.swift */; };
+		D68BB89A2B710AD800CB1088 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68BB8992B710AD800CB1088 /* ProductViewModel.swift */; };
+		D68BB89D2B710D0B00CB1088 /* ProductCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68BB89C2B710D0B00CB1088 /* ProductCellView.swift */; };
 		D696CE292B68E8E500810BF9 /* SettignsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D696CE282B68E8E500810BF9 /* SettignsViewModel.swift */; };
 		D696CE2C2B68E94B00810BF9 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D696CE2B2B68E94B00810BF9 /* AuthenticationViewModel.swift */; };
 		D696CE2F2B68E9CB00810BF9 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D696CE2E2B68E9CB00810BF9 /* UserManager.swift */; };
@@ -50,6 +55,11 @@
 		D66FE8782B581C27007E6F8C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D66FE87A2B5822DB007E6F8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D66FE87B2B582495007E6F8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D68BB8922B7108D900CB1088 /* ProductDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDatabase.swift; sourceTree = "<group>"; };
+		D68BB8942B71095500CB1088 /* ProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManager.swift; sourceTree = "<group>"; };
+		D68BB8972B710AC800CB1088 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		D68BB8992B710AD800CB1088 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
+		D68BB89C2B710D0B00CB1088 /* ProductCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellView.swift; sourceTree = "<group>"; };
 		D696CE282B68E8E500810BF9 /* SettignsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettignsViewModel.swift; sourceTree = "<group>"; };
 		D696CE2B2B68E94B00810BF9 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		D696CE2E2B68E9CB00810BF9 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -145,14 +155,34 @@
 			isa = PBXGroup;
 			children = (
 				D66FE8782B581C27007E6F8C /* Utilities.swift */,
+				D68BB8922B7108D900CB1088 /* ProductDatabase.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D68BB8962B710AAF00CB1088 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				D68BB8972B710AC800CB1088 /* ProductView.swift */,
+				D68BB8992B710AD800CB1088 /* ProductViewModel.swift */,
+				D68BB89B2B710CE900CB1088 /* Subviews */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		D68BB89B2B710CE900CB1088 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				D68BB89C2B710D0B00CB1088 /* ProductCellView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		D696CE262B68E87100810BF9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				D6284BBA2B34B9DF00209427 /* RootView.swift */,
+				D68BB8962B710AAF00CB1088 /* Product */,
 				D6EE11122B68EF16001818F4 /* Profile */,
 				D696CE2A2B68E92400810BF9 /* Authentication */,
 				D696CE272B68E8BC00810BF9 /* Settigns */,
@@ -184,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				D696CE2E2B68E9CB00810BF9 /* UserManager.swift */,
+				D68BB8942B71095500CB1088 /* ProductManager.swift */,
 			);
 			path = Firestore;
 			sourceTree = "<group>";
@@ -293,12 +324,17 @@
 				D6284B642B346A1E00209427 /* ContentView.swift in Sources */,
 				D696CE292B68E8E500810BF9 /* SettignsViewModel.swift in Sources */,
 				D6EE11112B68ED65001818F4 /* SignInEmailViewModel.swift in Sources */,
+				D68BB89D2B710D0B00CB1088 /* ProductCellView.swift in Sources */,
 				D696CE2F2B68E9CB00810BF9 /* UserManager.swift in Sources */,
+				D68BB89A2B710AD800CB1088 /* ProductViewModel.swift in Sources */,
 				D6284BBD2B34BF9900209427 /* SettingsView.swift in Sources */,
+				D68BB8932B7108D900CB1088 /* ProductDatabase.swift in Sources */,
 				D6284B622B346A1E00209427 /* CosmeticosApp.swift in Sources */,
 				D6EE11142B68EF39001818F4 /* ProfileView.swift in Sources */,
 				D6284B7C2B34AEA200209427 /* AuthenticationView.swift in Sources */,
+				D68BB8982B710AC800CB1088 /* ProductView.swift in Sources */,
 				D66FE8762B581B69007E6F8C /* SignInGoogleHelper.swift in Sources */,
+				D68BB8952B71095500CB1088 /* ProductManager.swift in Sources */,
 				D6284BB92B34B89A00209427 /* Collection.swift in Sources */,
 				D6284BBB2B34B9DF00209427 /* RootView.swift in Sources */,
 				D6284BB62B34B68D00209427 /* AuthenticationManager.swift in Sources */,
