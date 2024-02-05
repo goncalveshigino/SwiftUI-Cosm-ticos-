@@ -31,6 +31,16 @@ final class ProductViewModel: ObservableObject {
     
     
     func filterSelected(option: FilterOption) async throws {
+        
+                switch option {
+                case .noFilter:
+                    self.products = try await ProductsManager.shared.getAllProducts()
+                case .priceHigh:
+                    self.products = try await ProductsManager.shared.getAllProductsSortedByPrice(descending: true)
+                case .priceLow:
+                    self.products = try await ProductsManager.shared.getAllProductsSortedByPrice(descending: false)
+                }
+        
         self.selectedFilter = option
         self.getProducts()
     }
