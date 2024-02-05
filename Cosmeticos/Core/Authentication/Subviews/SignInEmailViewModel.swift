@@ -15,16 +15,14 @@ final class SignInEmailViewModel: ObservableObject {
     
     
     func verifyEmailAndPassword() {
-        guard email.isNoEmpty, password.isNoEmpty else {
-            print("No email or password found")
-            return
-        }
+        guard email.isNoEmpty, password.isNoEmpty else { return }
     }
     
     func signUp() async throws {
         verifyEmailAndPassword()
         let authDataResult =  try await AuthenticationManager.shared.createUser(email: email, password: password)
-        try await UserManager.shared.createNewUser(auth: authDataResult)
+        let user = DBUser(auth: authDataResult)
+        try await UserManager.shared.createNewUser(user: user)
     }
     
     func signIn() async throws {
@@ -35,10 +33,7 @@ final class SignInEmailViewModel: ObservableObject {
     func resetPassword() async throws {
         let authUser = try AuthenticationManager.shared.getCurrentUser()
         
-        guard let email = authUser.email else {
-            throw URLError(.fileDoesNotExist)
-        }
-        
+        guard let email = authUser.email else { throw URLError(.fileDoesNotExist) }
         try await AuthenticationManager.shared.resetPassword(email: email)
         
     }
