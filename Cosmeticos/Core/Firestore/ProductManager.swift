@@ -120,5 +120,6 @@ extension Query {
         let snapshot = try await self.count.getAggregation(source: .server)
         return Int(truncating: snapshot.count)
     }
+    
 }
 
