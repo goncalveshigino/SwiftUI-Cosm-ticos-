@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProductView: View {
+struct ProductsView: View {
     
     @StateObject private var viewModel = ProductViewModel()
     
@@ -15,6 +15,14 @@ struct ProductView: View {
         List {
             ForEach(viewModel.products) { product in
                 ProductCellView(product: product)
+                
+                if product == viewModel.products.last {
+                    ProgressView()
+                        .onAppear {
+                            viewModel.getProductsCount()
+                            viewModel.getProducts()
+                        }
+                }
             }
         }
         .navigationTitle("Products")
@@ -53,5 +61,7 @@ struct ProductView: View {
 }
 
 #Preview {
-    ProductView()
+    NavigationStack {
+        ProductsView()
+    }
 }
