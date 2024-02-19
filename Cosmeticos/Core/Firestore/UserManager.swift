@@ -77,10 +77,23 @@ struct DBUser: Codable {
 
 final class UserManager {
     
-    private let userCollection = Firestore.firestore().collection("users")
+    private let userCollection: CollectionReference = Firestore.firestore().collection("users")
     
     static let shared = UserManager()
     private init() { }
+    
+    private func userDocument(userId: String) -> DocumentReference {
+        userCollection.document(userId)
+    }
+    
+    
+    private func userFavoriteProductCollection(userId: String) -> CollectionReference {
+        userDocument(userId: userId).collection("favorite_products")
+    }
+    
+    private func userFavoriteProductDocument(userId: String, favoriteProductId: String) -> DocumentReference {
+        userFavoriteProductCollection(userId: userId).document(favoriteProductId)
+    }
     
     func createNewUser(user: DBUser) async throws {
         try userDocument(userId: user.userId).setData(from: user, merge: false)
@@ -91,9 +104,7 @@ final class UserManager {
         try await userDocument(userId: userId).getDocument(as: DBUser.self)
     }
     
-    private func userDocument(userId: String) -> DocumentReference {
-        userCollection.document(userId)
-    }
+   
     
     func updateUserPremiumStatus(userId: String, isPremium: Bool ) async throws {
         let data: [String: Any] = [
@@ -102,4 +113,53 @@ final class UserManager {
         try await userDocument(userId: userId).updateData(data)
     }
     
+    func addUserFavoriteProduct(userId: String, productId: Int) async throws {
+        let document = userFavoriteProductCollection(userId: userId).document()
+        let documentId = document.documentID
+        
+        let data: [String:Any] = [
+            UserFavoriteProduct.CodingKeys.id.rawValue: documentId,
+            UserFavoriteProduct.CodingKeys.productId.rawValue: productId,
+            UserFavoriteProduct.CodingKeys.dateCreated.rawValue : Timestamp()
+        ]
+        
+        try await document.setData(data, merge: false)
+    }
+    
+    func removeUserFavoriteProduct(userId: String, favoriteProductId: String) async throws {
+        try await userFavoriteProductDocument(userId: userId, favoriteProductId: favoriteProductId).delete()
+    }
+    
+    func getAllUserFavoriteProducts(userId: String) async throws -> [UserFavoriteProduct] {
+        try await userFavoriteProductCollection(userId: userId).getDocuments(as: UserFavoriteProduct.self)
+    }
+    
+}
+
+struct UserFavoriteProduct: Codable {
+    let id: String
+    let productId: Int
+    let dateCreated: Date
+    
+  
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case productId = "product_id"
+        case dateCreated = "date_created"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(String.self, forKey: .id)
+        self.productId = try container.decode(Int.self, forKey: .productId)
+        self.dateCreated = try container.decode(Date.self, forKey: .dateCreated)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.id, forKey: .id)
+        try container.encode(self.productId, forKey: .productId)
+        try container.encode(self.dateCreated, forKey: .dateCreated)
+    }
 }

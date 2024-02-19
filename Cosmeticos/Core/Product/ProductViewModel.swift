@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import FirebaseFirestore
 
 @MainActor
 final class ProductViewModel: ObservableObject {
@@ -14,6 +14,7 @@ final class ProductViewModel: ObservableObject {
     @Published private(set) var products: [Product] = []
     @Published var selectedFilter: FilterOption? = nil
     @Published var selectedCategory: CategoryOption? = nil
+    private var lastDocument: DocumentSnapshot? = nil
     
     enum FilterOption: String, CaseIterable {
         case noFilter
@@ -31,17 +32,9 @@ final class ProductViewModel: ObservableObject {
     
     
     func filterSelected(option: FilterOption) async throws {
-//        
-//                switch option {
-//                case .noFilter:
-//                    self.products = try await ProductsManager.shared.getAllProducts()
-//                case .priceHigh:
-//                    self.products = try await ProductsManager.shared.getAllProductsSortedByPrice(descending: true)
-//                case .priceLow:
-//                    self.products = try await ProductsManager.shared.getAllProductsSortedByPrice(descending: false)
-//                }
-        
         self.selectedFilter = option
+        self.products = []
+        self.lastDocument = nil
         self.getProducts()
     }
     
@@ -61,15 +54,34 @@ final class ProductViewModel: ObservableObject {
     
     func categorySelected(option: CategoryOption) async throws {
         self.selectedCategory = option
+        self.products = []
+        self.lastDocument = nil
         self.getProducts()
     }
     
     func getProducts() {
         Task {
-            self.products = try await  ProductsManager.shared.getAllProducts(
-                priceDescending: selectedFilter?.priceDescending, 
-                forCategory: selectedCategory?.categoryKey
-            )
+            let (newProduct, lastDocument) = try await
+            ProductsManager.shared.getAllProducts(priceDescending: selectedFilter?.priceDescending, forCategory: selectedCategory?.categoryKey, count: 3, lastDocument: lastDocument)
+            
+            self.products.append(contentsOf: newProduct)
+            if let lastDocument {
+                self.lastDocument = lastDocument
+            }
+        }
+    }
+    
+    func getProductsCount() {
+        Task {
+            let count = try await ProductsManager.shared.getAllProductsCount()
+            print("ALL PRODUCT ACOUNT: \(count)")
+        }
+    }
+    
+    func addUserFavoriteProduct(productId: Int) {
+        Task {
+            let authDataResult = try AuthenticationManager.shared.getCurrentUser()
+            try await UserManager.shared.addUserFavoriteProduct(userId: authDataResult.uid ,productId: productId)
         }
     }
     
