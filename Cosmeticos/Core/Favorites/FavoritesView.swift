@@ -7,31 +7,11 @@
 
 import SwiftUI
 
-@MainActor
-final class FavoriteViewModel: ObservableObject {
-    
-    @Published private(set) var userFavoritedProducts: [ UserFavoriteProduct] = []
-    
-    func getFavorites() {
-        Task {
-            let authDataResult = try AuthenticationManager.shared.getCurrentUser()
-            self.userFavoritedProducts = try await UserManager.shared.getAllUserFavoriteProducts(userId: authDataResult.uid)
-        }
-    }
-    
-    func removeFromFavorites(favoriteProductId: String) {
-        Task {
-            let authDataResult = try AuthenticationManager.shared.getCurrentUser()
-            try? await UserManager.shared.removeUserFavoriteProduct(userId:authDataResult.uid, favoriteProductId: favoriteProductId)
-            getFavorites()
-        }
-    }
-    
-}
 
 struct FavoritesView: View {
     
     @StateObject private var viewModel = FavoriteViewModel()
+    @State private var didAppear: Bool = false
     
     var body: some View {
         List {
@@ -45,8 +25,8 @@ struct FavoritesView: View {
             }
         }
         .navigationTitle("Favorites")
-        .onAppear {
-            viewModel.getFavorites()
+        .onFirstAppear {
+            viewModel.addListenerForFavorites()
         }
     }
 }
@@ -56,3 +36,7 @@ struct FavoritesView: View {
         FavoritesView()
     }
 }
+
+
+
+

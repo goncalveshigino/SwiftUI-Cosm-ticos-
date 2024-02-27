@@ -95,6 +95,8 @@ final class UserManager {
         userFavoriteProductCollection(userId: userId).document(favoriteProductId)
     }
     
+    private var userFavoriteProductsListener: ListenerRegistration? = nil
+    
     func createNewUser(user: DBUser) async throws {
         try userDocument(userId: user.userId).setData(from: user, merge: false)
     }
@@ -134,7 +136,53 @@ final class UserManager {
         try await userFavoriteProductCollection(userId: userId).getDocuments(as: UserFavoriteProduct.self)
     }
     
-}
+    //MARK: - Remove listener
+    func removeListenerForAllUserFavoriteProducts() {
+        self.userFavoriteProductsListener?.remove()
+    }
+    
+    //MARK: - LISTENERS
+    /*func addListenerForAllUserFavoriteProducts(userId: String, completion: @escaping (_ products: [UserFavoriteProduct]) -> Void) {
+        self.userFavoriteProductsListener  = userFavoriteProductCollection(userId: userId).addSnapshotListener { querySnapshot, error in
+            guard let documents = querySnapshot?.documents else {
+                print("No document")
+                return
+            }
+            
+            let products: [UserFavoriteProduct] = documents.compactMap({ try? $0.data(as: UserFavoriteProduct.self)})
+            completion(products)
+            
+            
+                
+            }
+        }
+    
+    func addListenerForAllUserFavoriteProducts(userId: String) -> AnyPublisher<[UserFavoriteProduct], Error> {
+        let publisher = PassthroughSubject<[UserFavoriteProduct], Error>()
+        
+        self.userFavoriteProductsListener  = userFavoriteProductCollection(userId: userId).addSnapshotListener { querySnapshot, error in
+            guard let documents = querySnapshot?.documents else {
+                print("No document")
+                return
+            }
+            
+                let products: [UserFavoriteProduct] = documents.compactMap({ try? $0.data(as: UserFavoriteProduct.self)})
+                publisher.send(products)
+            }
+        
+        return publisher.eraseToAnyPublisher()
+        }*/
+    
+      func addListenerForAllUserFavoriteProducts(userId: String) -> AnyPublisher<[UserFavoriteProduct], Error> {
+         let (publisher, listener) = userFavoriteProductCollection(userId: userId)
+              .addSnapshotListener(as: UserFavoriteProduct.self)
+          
+          self.userFavoriteProductsListener = listener
+          return publisher
+      }
+    }
+
+import Combine
 
 struct UserFavoriteProduct: Codable {
     let id: String

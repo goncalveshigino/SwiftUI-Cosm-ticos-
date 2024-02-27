@@ -23,6 +23,9 @@
 		D66FE8762B581B69007E6F8C /* SignInGoogleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66FE8752B581B69007E6F8C /* SignInGoogleHelper.swift */; };
 		D66FE8792B581C27007E6F8C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66FE8782B581C27007E6F8C /* Utilities.swift */; };
 		D66FE87C2B582495007E6F8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D66FE87B2B582495007E6F8C /* GoogleService-Info.plist */; };
+		D675563F2B8E33DE005B170F /* Query+EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = D675563E2B8E33DE005B170F /* Query+EXT.swift */; };
+		D67556452B8E3564005B170F /* OnFirstAppearViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67556442B8E3563005B170F /* OnFirstAppearViewModifier.swift */; };
+		D67556472B8E35CB005B170F /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67556462B8E35CB005B170F /* FavoriteViewModel.swift */; };
 		D68BB8932B7108D900CB1088 /* ProductDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68BB8922B7108D900CB1088 /* ProductDatabase.swift */; };
 		D68BB8952B71095500CB1088 /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68BB8942B71095500CB1088 /* ProductManager.swift */; };
 		D68BB8982B710AC800CB1088 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68BB8972B710AC800CB1088 /* ProductView.swift */; };
@@ -58,6 +61,9 @@
 		D66FE8782B581C27007E6F8C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D66FE87A2B5822DB007E6F8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D66FE87B2B582495007E6F8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D675563E2B8E33DE005B170F /* Query+EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Query+EXT.swift"; sourceTree = "<group>"; };
+		D67556442B8E3563005B170F /* OnFirstAppearViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnFirstAppearViewModifier.swift; sourceTree = "<group>"; };
+		D67556462B8E35CB005B170F /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		D68BB8922B7108D900CB1088 /* ProductDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDatabase.swift; sourceTree = "<group>"; };
 		D68BB8942B71095500CB1088 /* ProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManager.swift; sourceTree = "<group>"; };
 		D68BB8972B710AC800CB1088 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
@@ -114,9 +120,10 @@
 				D66FE87A2B5822DB007E6F8C /* Info.plist */,
 				D66FE87B2B582495007E6F8C /* GoogleService-Info.plist */,
 				D6284B612B346A1E00209427 /* CosmeticosApp.swift */,
+				D67556402B8E3499005B170F /* Components */,
+				D6284BB72B34B88200209427 /* Extensions */,
 				D696CE262B68E87100810BF9 /* Core */,
 				D66FE8772B581C15007E6F8C /* Utilities */,
-				D6284BB72B34B88200209427 /* Extensions */,
 				D6284B7A2B34AE2E00209427 /* Authentication */,
 				D6284B652B346A2000209427 /* Assets.xcassets */,
 				D6284B672B346A2000209427 /* Preview Content */,
@@ -153,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				D6284BB82B34B89A00209427 /* Collection.swift */,
+				D675563E2B8E33DE005B170F /* Query+EXT.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -164,6 +172,22 @@
 				D68BB8922B7108D900CB1088 /* ProductDatabase.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D67556402B8E3499005B170F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D67556412B8E34AB005B170F /* ViewModifier */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D67556412B8E34AB005B170F /* ViewModifier */ = {
+			isa = PBXGroup;
+			children = (
+				D67556442B8E3563005B170F /* OnFirstAppearViewModifier.swift */,
+			);
+			path = ViewModifier;
 			sourceTree = "<group>";
 		};
 		D68BB8962B710AAF00CB1088 /* Product */ = {
@@ -240,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				D69B08732B83DDF800ACEA3D /* FavoritesView.swift */,
+				D67556462B8E35CB005B170F /* FavoriteViewModel.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -346,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D69B08742B83DDF900ACEA3D /* FavoritesView.swift in Sources */,
+				D67556452B8E3564005B170F /* OnFirstAppearViewModifier.swift in Sources */,
 				D696CE2C2B68E94B00810BF9 /* AuthenticationViewModel.swift in Sources */,
 				D6284B642B346A1E00209427 /* ContentView.swift in Sources */,
 				D696CE292B68E8E500810BF9 /* SettignsViewModel.swift in Sources */,
@@ -356,7 +382,9 @@
 				D6284BBD2B34BF9900209427 /* SettingsView.swift in Sources */,
 				D68BB8932B7108D900CB1088 /* ProductDatabase.swift in Sources */,
 				D6284B622B346A1E00209427 /* CosmeticosApp.swift in Sources */,
+				D67556472B8E35CB005B170F /* FavoriteViewModel.swift in Sources */,
 				D6EE11142B68EF39001818F4 /* ProfileView.swift in Sources */,
+				D675563F2B8E33DE005B170F /* Query+EXT.swift in Sources */,
 				D69B08762B84071D00ACEA3D /* ProductCellViewBuilder.swift in Sources */,
 				D6284B7C2B34AEA200209427 /* AuthenticationView.swift in Sources */,
 				D68BB8982B710AC800CB1088 /* ProductView.swift in Sources */,
